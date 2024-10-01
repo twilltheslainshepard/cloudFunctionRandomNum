@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "471375048323",
+    "project_id": "cloud-function-8b9cc",
+    "storage_bucket": "cloud-function-8b9cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471375048323:android:40feb9ec81abeadea675b6",
+        "android_client_info": {
+          "package_name": "com.mycompany.randomnumbercloud"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIepHOxsk71eehatLuX32q3Ccv5wzd2P8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
