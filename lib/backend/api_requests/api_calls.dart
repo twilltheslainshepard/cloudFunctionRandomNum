@@ -8,7 +8,9 @@ export 'api_manager.dart' show ApiCallResponse;
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
 class RandomNumberCall {
-  static Future<ApiCallResponse> call() async {
+  static Future<ApiCallResponse> call({
+    int? number,
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'randomNumber',
       apiUrl:
@@ -28,7 +30,7 @@ class RandomNumberCall {
 
 class SquareNumberCall {
   static Future<ApiCallResponse> call({
-    int? sqaureNummy,
+    int? number,
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'squareNumber',
@@ -37,7 +39,7 @@ class SquareNumberCall {
       callType: ApiCallType.GET,
       headers: {},
       params: {
-        'sqaureNummy': sqaureNummy,
+        'number': number,
       },
       returnBody: true,
       encodeBodyUtf8: false,

@@ -99,91 +99,44 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
-              FutureBuilder<ApiCallResponse>(
-                future: SquareNumberCall.call(
-                  sqaureNummy: FFAppState().randomNum,
+              Text(
+                valueOrDefault<String>(
+                  (_model.apiResultms9?.jsonBody ?? '').toString(),
+                  '0',
                 ),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return Center(
-                      child: SizedBox(
-                        width: 50.0,
-                        height: 50.0,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            FlutterFlowTheme.of(context).primary,
-                          ),
-                        ),
-                      ),
-                    );
-                  }
-                  final textSquareNumberResponse = snapshot.data!;
-
-                  return Text(
-                    valueOrDefault<String>(
-                      (_model.apiResultms9?.jsonBody ?? '').toString(),
-                      '0',
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Inter',
+                      letterSpacing: 0.0,
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Inter',
-                          letterSpacing: 0.0,
-                        ),
-                  );
-                },
               ),
-              FutureBuilder<ApiCallResponse>(
-                future: SquareNumberCall.call(
-                  sqaureNummy: FFAppState().randomNum,
-                ),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return Center(
-                      child: SizedBox(
-                        width: 50.0,
-                        height: 50.0,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            FlutterFlowTheme.of(context).primary,
-                          ),
-                        ),
-                      ),
-                    );
-                  }
-                  final buttonSquareNumberResponse = snapshot.data!;
-
-                  return FFButtonWidget(
-                    onPressed: () async {
-                      _model.apiResultms9 = await SquareNumberCall.call();
-
-                      if ((_model.apiResultms9?.succeeded ?? true)) {
-                        FFAppState().sqaure =
-                            (_model.apiResultms9?.jsonBody ?? '');
-                        safeSetState(() {});
-                      }
-
-                      safeSetState(() {});
-                    },
-                    text: 'Square the Number',
-                    options: FFButtonOptions(
-                      height: 40.0,
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                      iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primary,
-                      textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Inter Tight',
-                                color: Colors.white,
-                                letterSpacing: 0.0,
-                              ),
-                      elevation: 0.0,
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
+              FFButtonWidget(
+                onPressed: () async {
+                  _model.apiResultms9 = await SquareNumberCall.call(
+                    number: (_model.apiResultyf9?.jsonBody ?? ''),
                   );
+
+                  if ((_model.apiResultms9?.succeeded ?? true)) {
+                    FFAppState().sqaure = (_model.apiResultms9?.jsonBody ?? '');
+                    safeSetState(() {});
+                  }
+
+                  safeSetState(() {});
                 },
+                text: 'Square the Number',
+                options: FFButtonOptions(
+                  height: 40.0,
+                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                  iconPadding:
+                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  color: FlutterFlowTheme.of(context).primary,
+                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                        fontFamily: 'Inter Tight',
+                        color: Colors.white,
+                        letterSpacing: 0.0,
+                      ),
+                  elevation: 0.0,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
               ),
             ],
           ),
